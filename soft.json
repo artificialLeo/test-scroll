@@ -1,0 +1,157 @@
+[
+  {
+    "h1": "Tell me about yourself",
+    "h2": "Розкажіть про себе",
+    "text": "I am a Full-stack Java Developer with a Master's degree in Metrology and a strong educational background from the National Technical University of Ukraine. Specializing in Java, I've completed courses from Mate Academy, JavaRush, Foxminded, and Dan—IT full-stack program, enhancing my skills in web development. I aim to leverage my expertise to contribute significantly to innovative projects, enabling me to achieve financial success and become financially independent. I am currently employed as a Software Engineer at Promptlink Inc., contributing to router and modem testing platforms. Previously, I worked on a React-based web app at Dan.IT Freelance Project. Proficient in Java 17+, Spring, Hibernate, and various web technologies. Solid foundation in OOP, experienced with databases, and adept at using tools like Git and IntelliJ IDEA. I have certificates attesting to my commitment to continuous learning. Fluent in English and engaged in agile methodologies."
+  },
+  {
+    "h1": "Why did you decide to change jobs?",
+    "h2": "Чому Ви вирішили змінити роботу?",
+    "text": "I decided to change my job primarily because of the strong motivation to evolve as a developer. I am drawn to the challenge of continuous growth in the development field. Specifically, I am seeking opportunities where teamwork is well-organized, as my current workplace lacks effective collaboration. I am enthusiastic about contributing to projects that prioritize efficient teamwork and provide a conducive environment for professional development. Additionally, I want to transition away from working with Google Web Toolkit, as I find it less engaging and am eager to explore more stimulating technologies in my next role."
+  },
+  {
+    "h1": "Are you considering a full-time position, or only part-time? How will you combine it with your studies?",
+    "h2": "Чи розглядаєте full-time позицію, чи лише part-time? Як будете поєднувати з навчанням?",
+    "text": "I am open to both full-time and part-time positions, and I am prepared to work either remotely or in an office setting."
+  },
+  {
+    "h1": "Tell me about your duties at your previous job",
+    "h2": "Розкажіть про обов'язки на минулій роботі",
+    "text": "As a Software Engineer at Promptlink, my responsibilities include working on a platform for testing and verifying routers, DSL modems, and cable modems. I am involved in conducting research, implementing verification procedures, and developing new features. My expertise encompasses Java 17+, Google Web Toolkit, MySQL, Spring Framework, Docker, and Jenkins."
+  },
+  {
+    "h1": "How long have you been looking for a job? Why do you think you haven't found a job yet?",
+    "h2": "Як давно шукаєте роботу? Як вважаєте, чому досі не працевлаштувалися?",
+    "text": "I began looking for a job when I applied to Mate Academy. While it's been a short period, I'm keen to find a role that fits my skills. The delay in securing a position is because my current job mainly uses Google Web Toolkit, limiting my experience with the technologies I'm aiming for. I'm now actively seeking opportunities to apply and improve my skills in more relevant technologies."
+  },
+  {
+    "h1": "Why did you choose the IT field?",
+    "h2": "Чому обрали для себе саме сферу ІТ?",
+    "text": "I picked IT because it's always changing and lets me learn and solve problems. I like the chance to work on things that matter and see real results."
+  },
+  {
+    "h1": "Why did you choose the Java direction?",
+    "h2": "Чому обрали саме JAVA напрямок?",
+    "text": "I chose Java because I find it interesting and enjoy working with it. The language's versatility and widespread use in various applications appeal to me. I appreciate the structured approach to programming that Java promotes, making it suitable for developing robust and scalable solutions."
+  },
+  {
+    "h1": "How long have you been interested in this direction?",
+    "h2": "Як давно цікавитесь цим напрямком?",
+    "text": "I got into this field about 5 years ago, and since then, I've been learning and practicing regularly. I started with school and kept building on that with practical projects and courses. This time frame has made me sure that I want to have a career in this field."
+  },
+  {
+    "h1": "Tell me about your experience in Java",
+    "h2": "Розкажіть про свій досвід в JAVA?",
+    "text": "I started learning Java in college, using resources like 'Thinking in Java' and coding bat. I covered the basics, including working with types, numbers, arrays, and strings. Later, through JavaRush, I explored Java collections like lists, stacks, queues, and maps.\nAfter college, I joined Dan.IT, delving into Java objects, JPA, and gaining some front-end and Spring experience. Then, I moved to Promptlink, where I primarily worked with Google Web Toolkit and a bit of Spring.\nI further expanded my skills at Foxminded, focusing on Spring and design patterns. Then I took a Udemy course on Spring Security. In Mate Academy I added Docker, AWS deployment, to my skill set."
+  },
+  {
+    "h1": "Tell me what you learned/did in the courses",
+    "h2": "Розкажіть, що вчили/робили на курсах.",
+    "text": "During JavaRush, I completed tasks both in the IDE and in the browser. The focus was on Java, with assignments covering various aspects like loops, arrays, and collections. At Dan.IT, I worked on both front-end and back-end tasks using Git, with my mentor providing code reviews. There were team projects, but I also had the opportunity to work on individual assignments.\nFoxminded involved tasks reviewed by mentors, providing hands-on experience with specific technologies. Mate Academy included a mix of fork tasks, in-browser assignments, and video theory sessions. I worked on tasks under mentor review, and the highlight was the final team project, where collaboration and teamwork played a crucial role."
+  },
+  {
+    "h1": "What sources do you read on IT in general and on Java in particular?",
+    "h2": "Які джерела читаєте по ІТ в цілому та по JAVA зокрема?",
+    "text": "I regularly follow IT-related sources to stay updated. For general IT content, I read articles on platforms like 'Dou.ua' and 'Medium.com'."
+  },
+  {
+    "h1": "Why should we hire you (describe your strengths)?",
+    "h2": "Чому ми повинні взяти саме Вас (опишіть свої сильні сторони)?",
+    "text": "Consider me for my persistence and data handling ability. I'm consistently determined, shown by studying for three years before my first job. I efficiently manage large data sets, crucial for software development. At Promptlink, I handled extensive data in router and modem testing. Alongside, my technical strengths in Java, Spring, Hibernate, and web technologies make me ready to contribute effectively to your projects."
+  },
+  {
+    "h1": "What is a good job for you?",
+    "h2": "Що для Вас хороша робота?",
+    "text": "For me, a good job involves an engaging and collaborative work environment. I value working with cutting-edge technologies and being part of innovative projects. A supportive team and opportunities for continuous learning are crucial. While competitive compensation matters, a positive workplace culture and exciting projects are equally important indicators of a good job for me."
+  },
+  {
+    "h1": "If 2 companies simultaneously offer you a job, what principle will you choose?",
+    "h2": "Якщо 2 компанії одночасно дають оффер, за яким принципом обиратимете?",
+    "text": "I would choose based on the nature of the projects and the team dynamics. The type of work and the potential for professional growth are crucial factors. I'll consider the company's focus and how aligned it is with my interests. The team's collaboration and the chance to work on exciting and impactful projects will weigh heavily in my decision-making process."
+  },
+  {
+    "h1": "What do you expect from a new job? What do you want in a new job first?",
+    "h2": "Чого очікуєте від нової роботи? Що хочеться в новій роботі в першу чергу?",
+    "text": "I expect challenging tasks that promote continuous learning, exposure to modern technologies, and a supportive team environment. Having a mentor for guidance in the initial phases would be valuable. A collaborative atmosphere and opportunities for skill development are my primary priorities in a new job."
+  },
+  {
+    "h1": "And what wouldn't you want in principle? What would demotivate, could make you quit?",
+    "h2": "А чого принципово не хотілося б? Що принципово демотивує, могло б змусити звільнитись?",
+    "text": "I would find it demotivating if there's a lack of opportunities for learning and growth. A rigid or unsupportive work culture would be a significant factor that could lead me to consider leaving a job."
+  },
+  {
+    "h1": "What motivates you the most to work?",
+    "h2": "Що найбільше мотивує до роботи?",
+    "text": "I am most motivated by the sense of accomplishment and seeing tangible results in my work. Challenging projects that push my abilities and contribute to meaningful outcomes keep me driven and engaged."
+  },
+  {
+    "h1": "Why did you choose our company?",
+    "h2": "Чому Ви обрали саме нашу компанію?",
+    "text": "I chose your company because of its reputation for innovation, collaborative work culture, and the exciting projects mentioned on your website. I am eager to contribute my skills to a dynamic team like yours and be part of the impactful work your company is known for."
+  },
+  {
+    "h1": "Describe the leader who could get the best result from you (ideal leader)",
+    "h2": "Опишіть керівника, який міг би отримати від Вас найкращий результат (ідеальний керівник)",
+    "text": "I am confident that having a future boss with clear communication skills would be sufficient for me."
+  },
+  {
+    "h1": "Tell me about the critical/conflict situations you encountered at work",
+    "h2": "Розкажіть з якими критичними/конфліктними ситуаціями стикались на роботі",
+    "text": "In a critical situation, a team member needed help processing new information. I assisted by using Google to quickly find the relevant data, resolving the issue collaboratively. Generally, I approach conflicts with a solution-oriented mindset and open communication, seeking resolutions that benefit the team."
+  },
+  {
+    "h1": "What would you like to do in your future job?",
+    "h2": "Чим хотіли б займатися на майбутній роботі?",
+    "text": "I would like to focus on tasks related to upload optimization and site deployment in my future role."
+  },
+  {
+    "h1": "And what wouldn't you want to do in principle?",
+    "h2": "А чим принципово не хотіли б займатися?",
+    "text": "I prefer not to work extensively with large amounts of unfamiliar code; however, I am open and willing to handle all other tasks that may come my way."
+  },
+  {
+    "h1": "Tell me about your weaknesses",
+    "h2": "Розкажіть про свої слабкі сторони",
+    "text": "One of my areas for improvement is in-depth knowledge of advanced Java frameworks. To address this, I regularly engage in focused learning and hands-on projects to strengthen my proficiency. Additionally, I am working on enhancing my debugging skills through continuous practice and seeking guidance from experienced developers."
+  },
+  {
+    "h1": "What do you consider your greatest achievement in life/work?",
+    "h2": "Що Ви вважаєте своїм найбільшим досягненням у житті/роботі?",
+    "text": "My significant achievement is successfully completing the intensive Java development program at Mate Academy. It marked a pivotal point in my career transition and showcased my commitment to mastering new technologies."
+  },
+  {
+    "h1": "Do you have any fears about the new sphere/work?",
+    "h2": "Чи маєте якісь страхи стосовно нової сфери/роботи?",
+    "text": "I do have a concern about meeting deadlines, but more often than not, I manage to surpass them efficiently. This motivates me to continually improve my time management skills."
+  },
+  {
+    "h1": "Where do you see yourself in X years, where would you like to move?",
+    "h2": "Ким бачите себе через X років, куди б хотіли рухатися?",
+    "text": "In the coming years, I see myself advancing in Java development, contributing to impactful projects, and staying updated on emerging technologies. Additionally, I aim to build financial stability and success as part of my long-term career goals."
+  },
+  {
+    "h1": "What are your interests outside of work?",
+    "h2": "Чим цікавитеся за межами роботи?",
+    "text": "I enjoy an active lifestyle, including regular workouts and reading in my free time."
+  },
+  {
+    "h1": "Your salary expectations? And how much do you earn now?",
+    "h2": "Ваші очікування по з/п? А скільки заробляєте зараз?",
+    "text": "I am expecting a salary starting from $300."
+  },
+  {
+    "h1": "If you get an offer, when are you ready to start working?",
+    "h2": "Якщо отримаєте оффер, коли готові починати роботу?",
+    "text": "I am ready to start immediately upon receiving an offer."
+  },
+  {
+    "h1": "Do you currently have communication processes with other companies?",
+    "h2": "Чи маєте наразі процеси спілкування з іншими компаніями?",
+    "text": "Currently, I am actively searching for opportunities and engaging in interviews with other companies."
+  },
+  {
+    "h1": "What questions do you have for us?",
+    "h2": "Які питання маєте до нас?",
+    "text": "What product or project will I be working on?\nWhat is the expected timeline for a response after the interview?"
+  }
+]

@@ -7,46 +7,63 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Stop Eye</title>
 </head>
-<body>
-<div style="position: absolute;">
-  <button style="width: 100px; height: 100px;" onclick="startScrolling()">Scroll</button>
-  <label for="text">Text:</label><input type="text" id="text" size="30" style="width: 250px; height: 250px;">
-</div>
+<body id="body">
 
-<div style="display:flex; justify-content: center; align-items: center; flex-direction: column">
-  <div id="read" style="width: 100px; height: 50px; border: 1px solid #000; overflow: hidden;">
-    <div id="scrollingContent" style="text-align: center;"></div>
-  </div>
-</div>
+
 
 <script>
-  let scrollingInterval;
+  const body = document.getElementById("body");
 
-  function startScrolling() {
-    let container = document.getElementById('read');
-    let content = document.getElementById('scrollingContent');
-    let inputText = document.getElementById('text').value;
+  class Header {
+    constructor() {
+      this.container = document.createElement('div');
+      this.container.style.width = '100%';
+      this.container.style.height = '150px';
+      this.container.style.border = '1px solid black';
 
-    if (!scrollingInterval) {
-      content.innerText = inputText; // Set the content of scrolling div to the entered text
-      container.scrollTop = 0; // Reset to the top before starting scrolling
-      let scrollHeight = content.clientHeight - container.clientHeight;
+    }
 
-      function scroll() {
-        if (container.scrollTop < scrollHeight) {
-          container.scrollTop += 1.25;
-        } else {
-          container.scrollTop = 0;
-        }
-      }
+    append(id) {
+      document.getElementById(id).append(this.container);
+    }
 
-      scrollingInterval = setInterval(scroll, 50);
-    } else {
-      clearInterval(scrollingInterval);
-      scrollingInterval = null;
+    getContainer() {
+      return this.container;
     }
   }
-</script>
 
+  const header = new Header();
+  header.append('body');
+
+  class Search {
+    constructor() {
+      this.container = document.createElement('div');
+      this.container.style.width = '100%';
+      this.container.style.height = '150px';
+      this.container.style.border = '1px solid black';
+
+    }
+
+    append(id) {
+      document.getElementById(id).append(this.container);
+    }
+
+    getContainer() {
+      return this.container;
+    }
+  }
+
+  const search = new Search();
+  search.append('body');
+
+  fetch('soft.json')
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+          })
+          .catch(error => {
+            console.error('Error fetching JSON:', error);
+          });
+</script>
 </body>
 </html>
