@@ -14,44 +14,144 @@
 <script>
   const body = document.getElementById("body");
 
-  class Header {
+  class BaseContainer {
     constructor() {
       this.container = document.createElement('div');
       this.container.style.width = '100%';
       this.container.style.height = '150px';
       this.container.style.border = '1px solid black';
-
+      this.container.style.position = 'relative';
+      this.center(this.container);
+      this.container.style.flexDirection = 'column';
     }
 
     append(id) {
       document.getElementById(id).append(this.container);
     }
 
+    center(item) {
+      try {
+        item.style.display = 'flex';
+        item.style.justifyContent = 'center';
+        item.style.alignItems = 'center';
+      } catch (error) {
+        console.error('Error in center function:', error.message);
+      }
+    }
+
+
     getContainer() {
       return this.container;
     }
   }
+
+  class Header extends BaseContainer {
+    constructor() {
+      super();
+      this.scrollField = document.createElement('div');
+      this.scrollField.style.width = '200px';
+      this.scrollField.style.height = '35px';
+      this.scrollField.style.border = '1px solid black';
+      this.scrollField.style.position = 'relative';
+      this.scrollField.style.overflow = 'hidden';
+      this.center(this.scrollField);
+
+      this.textField = document.createElement('div');
+      this.textField.style.width = '150px';
+      this.textField.style.wordBreak = 'break-word';
+      this.textField.style.position = 'absolute';
+      this.textField.style.top = '0';
+      this.textField.style.transition = 'top 0.5s ease-out';
+      this.textField.style.border = '1px solid black';
+
+      this.buttonBlock = document.createElement('div');
+      this.buttonBlock.style.width = '350px';
+      this.buttonBlock.style.height = '50px';
+      this.buttonBlock.style.border = '1px solid black';
+      this.center(this.buttonBlock);
+
+      this.startScrollBtn = document.createElement('button');
+      this.startScrollBtn.innerText = 'Start scroll';
+      this.startScrollBtn.style.backgroundColor = 'green';
+      this.startScrollBtn.addEventListener('click', () => {
+        this.startScroll();
+      });
+      this.stopScrollBtn = document.createElement('button');
+      this.stopScrollBtn.innerText = 'Stop scroll';
+      this.stopScrollBtn.style.backgroundColor = 'red';
+      this.stopScrollBtn.addEventListener('click', () => {
+        this.stopScroll();
+      });
+      this.restartScrollBtn = document.createElement('button');
+      this.restartScrollBtn.innerText = 'Restart scroll';
+      this.restartScrollBtn.style.backgroundColor = 'yellow';
+      this.restartScrollBtn.addEventListener('click', () => {
+        this.restartScroll();
+      });
+
+
+      this.buttonBlock.append(this.startScrollBtn);
+      this.buttonBlock.append(this.stopScrollBtn);
+      this.buttonBlock.append(this.restartScrollBtn);
+
+      this.scrollField.append(this.textField);
+      this.container.append(this.scrollField);
+      this.container.append(this.buttonBlock);
+
+      this.isScrolling = false;
+      this.scrollSpeed = 10;
+      this.intervalId = null;
+    }
+
+    setScrollText(text) {
+      this.textField.innerText = text;
+    }
+
+    startScroll() {
+      if (!this.isScrolling) {
+        this.isScrolling = true;
+        this.intervalId = setInterval(() => {
+          this.scroll();
+        }, 500);
+      }
+    }
+
+    stopScroll() {
+      if (this.isScrolling) {
+        this.isScrolling = false;
+        clearInterval(this.intervalId);
+      }
+    }
+
+    restartScroll() {
+      this.textField.style.top = '0';
+    }
+
+    scroll() {
+      let currentPosition = this.textField.offsetTop;
+      let newTop = currentPosition - this.scrollSpeed;
+
+      this.textField.style.top = `${newTop}px`;
+
+      if (newTop < -this.textField.scrollHeight) {
+        this.stopScroll();
+        this.restartScroll();
+      }
+    }
+  }
+
+
+  class Search extends BaseContainer {
+    constructor() {
+      super();
+      // Additional Search-specific code if needed
+    }
+  }
+
 
   const header = new Header();
   header.append('body');
-
-  class Search {
-    constructor() {
-      this.container = document.createElement('div');
-      this.container.style.width = '100%';
-      this.container.style.height = '150px';
-      this.container.style.border = '1px solid black';
-
-    }
-
-    append(id) {
-      document.getElementById(id).append(this.container);
-    }
-
-    getContainer() {
-      return this.container;
-    }
-  }
+  header.setScrollText('11111 texttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttext ')
 
   const search = new Search();
   search.append('body');
