@@ -18,7 +18,7 @@
     constructor() {
       this.container = document.createElement('div');
       this.container.style.width = '100%';
-      this.container.style.height = '150px';
+      this.container.style.height = '350px';
       this.container.style.border = '1px solid black';
       this.container.style.position = 'relative';
       this.center(this.container);
@@ -39,13 +39,30 @@
       }
     }
 
+    createButton(text, color, clickHandler) {
+      const button = document.createElement('button');
+      button.style.width = '100px';
+      button.style.height = '50px';
+      button.innerText = text;
+      button.style.backgroundColor = color;
+      button.addEventListener('click', clickHandler);
+      return button;
+    }
+
+    hide() {
+      this.container.style.display = 'none';
+    }
+
+    show() {
+      this.container.style.display = 'flex';
+    }
 
     getContainer() {
       return this.container;
     }
   }
 
-  class Header extends BaseContainer {
+  class HeaderScroll extends BaseContainer {
     constructor() {
       super();
       this.scrollField = document.createElement('div');
@@ -57,7 +74,7 @@
       this.center(this.scrollField);
 
       this.textField = document.createElement('div');
-      this.textField.style.width = '150px';
+      this.textField.style.width = '50px';
       this.textField.style.wordBreak = 'break-word';
       this.textField.style.position = 'absolute';
       this.textField.style.top = '0';
@@ -65,34 +82,29 @@
       this.textField.style.border = '1px solid black';
 
       this.buttonBlock = document.createElement('div');
-      this.buttonBlock.style.width = '350px';
-      this.buttonBlock.style.height = '50px';
       this.buttonBlock.style.border = '1px solid black';
-      this.center(this.buttonBlock);
+      this.buttonBlock.style.display = 'grid';
+      this.buttonBlock.style.gridTemplateColumns = 'repeat(3, 1fr)';
 
-      this.startScrollBtn = document.createElement('button');
-      this.startScrollBtn.innerText = 'Start scroll';
-      this.startScrollBtn.style.backgroundColor = 'green';
-      this.startScrollBtn.addEventListener('click', () => {
-        this.startScroll();
-      });
-      this.stopScrollBtn = document.createElement('button');
-      this.stopScrollBtn.innerText = 'Stop scroll';
-      this.stopScrollBtn.style.backgroundColor = 'red';
-      this.stopScrollBtn.addEventListener('click', () => {
-        this.stopScroll();
-      });
-      this.restartScrollBtn = document.createElement('button');
-      this.restartScrollBtn.innerText = 'Restart scroll';
-      this.restartScrollBtn.style.backgroundColor = 'yellow';
-      this.restartScrollBtn.addEventListener('click', () => {
-        this.restartScroll();
-      });
+      this.startScrollBtn = this.createButton('Start scroll', 'green', () => {this.startScroll()});
+      this.stopScrollBtn = this.createButton('Stop scroll', 'red', () => {this.stopScroll()});
+      this.restartScrollBtn = this.createButton('Restart scroll', 'yellow', () => {this.restartScroll()});
+      this.rewindScrollBtn = this.createButton('Rewind scroll', 'blue', () => {this.rewindScroll()});
+      this.increaseScrollSpdBtn = this.createButton('Increase speed', 'pink', () => {this.increaseScrollSpeed()});
+      this.decreaseScrollSpdBtn = this.createButton('Decrease speed', 'brown', () => {this.decreaseScrollSpeed()});
+      this.resetScrollSpdBtn = this.createButton('Default speed', 'orange', () => {this.resetScrollSpeed()});
+      this.increaseTextWidthBtn = this.createButton('Increase width', 'blueviolet', () => {this.increaseTextWidth()});
+      this.resetTextWidthBtn = this.createButton('Default width', 'darkolivegreen', () => {this.resetTextWidth()});
 
-
-      this.buttonBlock.append(this.startScrollBtn);
       this.buttonBlock.append(this.stopScrollBtn);
+      this.buttonBlock.append(this.startScrollBtn);
       this.buttonBlock.append(this.restartScrollBtn);
+      this.buttonBlock.append(this.rewindScrollBtn);
+      this.buttonBlock.append(this.increaseScrollSpdBtn);
+      this.buttonBlock.append(this.decreaseScrollSpdBtn);
+      this.buttonBlock.append(this.resetScrollSpdBtn);
+      this.buttonBlock.append(this.increaseTextWidthBtn);
+      this.buttonBlock.append(this.resetTextWidthBtn);
 
       this.scrollField.append(this.textField);
       this.container.append(this.scrollField);
@@ -123,8 +135,37 @@
       }
     }
 
+    rewindScroll() {
+      let currentPosition = this.textField.offsetTop;
+      let newTop = currentPosition + this.scrollSpeed * 5;
+
+      this.textField.style.top = `${newTop}px`;
+    }
+
     restartScroll() {
-      this.textField.style.top = '0';
+      this.textField.style.top = '50px';
+    }
+
+    increaseScrollSpeed() {
+      this.scrollSpeed += 5;
+    }
+
+    decreaseScrollSpeed() {
+      this.scrollSpeed = Math.max(1, this.scrollSpeed - 5);
+    }
+
+
+    resetScrollSpeed() {
+      this.scrollSpeed = 10;
+    }
+
+    increaseTextWidth() {
+      let currentWidth = parseInt(this.textField.style.width);
+      this.textField.style.width = `${currentWidth + 10}px`;
+    }
+
+    resetTextWidth() {
+      this.textField.style.width = '50px';
     }
 
     scroll() {
@@ -140,30 +181,242 @@
     }
   }
 
+  class HeaderWords extends BaseContainer {
+    constructor() {
+      super();
+      this.scrollField = document.createElement('div');
+      this.scrollField.style.width = '200px';
+      this.scrollField.style.height = '35px';
+      this.scrollField.style.border = '1px solid black';
+      this.scrollField.style.position = 'relative';
+      this.scrollField.style.overflow = 'hidden';
+      this.scrollField.style.backgroundColor = 'black';
+      this.center(this.scrollField);
+
+      this.textField = document.createElement('div');
+      this.textField.style.wordBreak = 'break-word';
+      this.textField.style.position = 'absolute';
+      this.textField.style.top = '0';
+      this.textField.style.transition = 'top 0.5s ease-out';
+      this.textField.style.border = '1px solid black';
+      this.textField.style.backgroundColor = 'white';
+
+      this.buttonBlock = document.createElement('div');
+      this.buttonBlock.style.border = '1px solid black';
+      this.buttonBlock.style.display = 'grid';
+      this.buttonBlock.style.gridTemplateColumns = 'repeat(3, 1fr)';
+
+      this.startScrollBtn = this.createButton('Start counting', 'green', () => { this.showNextWordContinuously() });
+      this.stopScrollBtn = this.createButton('Stop counting', 'red', () => { this.stopCounting() });
+      this.restartScrollBtn = this.createButton('Restart counting', 'yellow', () => { this.restartCounting() });
+      this.backwardBtn = this.createButton('Move 3 words back', 'blue', () => { this.moveWordsBackward(3) });
+      this.forwardBtn = this.createButton('Move 1 word forward', 'purple', () => { this.moveWordsForward(1) });
+      this.increaseSpeedBtn = this.createButton('Increase speed', 'pink', () => { this.increaseSpeed() });
+      this.decreaseSpeedBtn = this.createButton('Decrease speed', 'brown', () => { this.decreaseSpeed() });
+      this.resetSpeedBtn = this.createButton('Default speed', 'orange', () => { this.resetSpeed() });
+
+      this.buttonBlock.append(this.startScrollBtn);
+      this.buttonBlock.append(this.stopScrollBtn);
+      this.buttonBlock.append(this.restartScrollBtn);
+      this.buttonBlock.append(this.backwardBtn);
+      this.buttonBlock.append(this.forwardBtn);
+      this.buttonBlock.append(this.increaseSpeedBtn);
+      this.buttonBlock.append(this.decreaseSpeedBtn);
+      this.buttonBlock.append(this.resetSpeedBtn);
+
+      this.scrollField.append(this.textField);
+      this.container.append(this.scrollField);
+      this.container.append(this.buttonBlock);
+
+      this.words = [];
+      this.wordIndex = 0;
+      this.intervalId = null;
+      this.scrollSpeed = 500;
+    }
+
+    setScrollText(text) {
+      this.words = text.split(' ');
+
+      if (this.words.length > 0) {
+        this.textField.innerText = this.words[0];
+      }
+    }
+
+    showNextWordContinuously() {
+      if (this.intervalId) {
+        return;
+      }
+
+      this.intervalId = setInterval(() => {
+        if (this.words.length > 0) {
+          this.textField.innerText = this.words[this.wordIndex];
+          this.wordIndex = (this.wordIndex + 1) % this.words.length;
+
+          if (this.wordIndex === 0) {
+            this.stopCounting();
+            this.restartCounting();
+          }
+        }
+      }, this.scrollSpeed);
+    }
+
+    stopCounting() {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
+    }
+
+    restartCounting() {
+      this.wordIndex = 0;
+    }
+
+    moveWordsBackward(count) {
+      this.wordIndex = Math.max(0, this.wordIndex - count);
+    }
+
+    moveWordsForward(count) {
+      this.wordIndex = (this.wordIndex + count) % this.words.length;
+    }
+
+    increaseSpeed() {
+      this.scrollSpeed = Math.max(100, this.scrollSpeed - 100);
+      this.resetCounting();
+    }
+
+    decreaseSpeed() {
+      this.scrollSpeed += 100;
+      this.resetCounting();
+    }
+
+    resetSpeed() {
+      this.scrollSpeed = 500;
+      this.resetCounting();
+    }
+
+    resetCounting() {
+      this.stopCounting();
+      this.showNextWordContinuously();
+    }
+  }
 
   class Search extends BaseContainer {
     constructor() {
       super();
-      // Additional Search-specific code if needed
+
+      this.searchBlock = document.createElement('div');
+      this.center(this.searchBlock);
+      this.searchBlock.style.width = '100%';
+      this.searchBlock.style.height = '20%';
+      this.searchBlock.style.border = '1px solid black';
+
+      this.searchInput = document.createElement('input');
+      this.searchInput.type = 'text';
+      this.searchInput.style.width = '70%';
+      this.searchInput.style.height = '50%';
+
+      this.searchButton = document.createElement('button');
+      this.searchButton.innerText = 'Search';
+      this.searchButton.style.width = '20%';
+      this.searchButton.style.height = '50%';
+      this.searchButton.style.marginLeft = '10px';
+      this.searchButton.addEventListener('click', () => {
+        this.handleSearch();
+      });
+
+      this.swapButton = document.createElement('button');
+      this.swapButton.innerText = 'SWAP';
+      this.swapButton.style.backgroundColor = 'green';
+      this.swapButton.style.width = '20%';
+      this.swapButton.style.height = '50%';
+      this.swapButton.style.marginLeft = '10px';
+
+      let swap = true;
+      this.swapButton.addEventListener('click', () => {
+        swap = !swap;
+        words[swap ? 'show' : 'hide']();
+        scroll[swap ? 'hide' : 'show']();
+      });
+
+
+      this.searchBlock.append(this.searchInput);
+      this.searchBlock.append(this.searchButton);
+      this.searchBlock.append(this.swapButton);
+
+      this.resultsBlock = document.createElement('div');
+      this.center(this.resultsBlock);
+      this.resultsBlock.style.flexDirection = 'column';
+      this.resultsBlock.style.overflow = 'auto';
+      this.resultsBlock.style.width = '100%';
+      this.resultsBlock.style.height = '80%';
+      this.resultsBlock.style.border = '1px solid black';
+
+      this.container.append(this.searchBlock);
+      this.container.append(this.resultsBlock);
+    }
+    createCard(item) {
+      const cardDiv = document.createElement('div');
+      cardDiv.style.border = '1px solid black';
+      cardDiv.style.margin = '10px';
+      cardDiv.style.padding = '10px';
+
+      const h1Span = document.createElement('span');
+      h1Span.innerText = item.h1;
+      h1Span.style.display = 'block';
+
+      const h2Span = document.createElement('span');
+      h2Span.innerText = item.h2;
+      h2Span.style.display = 'block';
+
+      const textSpan = document.createElement('span');
+      textSpan.innerText = item.text;
+      textSpan.style.display = 'block';
+
+      cardDiv.append(h1Span, h2Span, textSpan);
+      cardDiv.style.cursor = 'pointer';
+      cardDiv.addEventListener('click', () => {
+        words.setScrollText(item.text);
+        scroll.setScrollText(item.text);
+      });
+
+      this.resultsBlock.append(cardDiv);
+    }
+
+    handleSearch() {
+      const searchTerm = this.searchInput.value.toLowerCase();
+
+      fetch('soft.json')
+              .then(response => response.json())
+              .then(data => {
+                this.resultsBlock.innerHTML = '';
+
+                data.forEach(item => {
+                  if (
+                          item.h1.toLowerCase().includes(searchTerm) ||
+                          item.h2.toLowerCase().includes(searchTerm) ||
+                          item.text.toLowerCase().includes(searchTerm)
+                  ) {
+                    this.createCard(item);
+                  }
+                });
+              })
+              .catch(error => {
+                console.error('Error fetching JSON:', error);
+              });
     }
   }
 
 
-  const header = new Header();
-  header.append('body');
-  header.setScrollText('11111 texttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttext ')
+
+  const scroll = new HeaderScroll();
+  scroll.append('body');
+  scroll.hide();
+
+  const words = new HeaderWords();
+  words.append('body');
 
   const search = new Search();
   search.append('body');
 
-  fetch('soft.json')
-          .then(response => response.json())
-          .then(data => {
-            console.log(data);
-          })
-          .catch(error => {
-            console.error('Error fetching JSON:', error);
-          });
+
 </script>
 </body>
 </html>
